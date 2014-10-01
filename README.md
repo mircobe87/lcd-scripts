@@ -13,20 +13,20 @@ presenta 16 pin di controllo come in figura.
 
 ![lcd-pinout](./lcd-pinout.gif "lcd-pinout")
 
- 1. **VSS**: GND
- 2. **VDD**: +Vcc
- 3. **V0**:  regolazione contrasto
- 4. **RS**:  selezione registro (0 - comandi, 1 - dati)
- 5. **RW**:  lettura (1) o scrittura (0)
- 6. **E**:   enable (attiva il diplay sul fronte di discesa)
- 7. **DB0**: pin 0 del bus dati
- 8. **DB0**: pin 1 del bus dati
- 9. **DB0**: pin 2 del bus dati
-10. **DB0**: pin 3 del bus dati
-11. **DB0**: pin 4 del bus dati
-12. **DB0**: pin 5 del bus dati
-13. **DB0**: pin 6 del bus dati
-14. **DB0**: pin 7 del bus dati
+01. **VSS**: GND
+02. **VDD**: +Vcc
+03. **V0**:  regolazione contrasto
+04. **RS**:  selezione registro (0 - comandi, 1 - dati)
+05. **RW**:  lettura (1) o scrittura (0)
+06. **E**:   enable (attiva il diplay sul fronte di discesa)
+07. **DB0**: pin 0 del bus dati
+08. **DB1**: pin 1 del bus dati
+09. **DB2**: pin 2 del bus dati
+10. **DB3**: pin 3 del bus dati
+11. **DB4**: pin 4 del bus dati
+12. **DB5**: pin 5 del bus dati
+13. **DB6**: pin 6 del bus dati
+14. **DB7**: pin 7 del bus dati
 15. **A**:   anodo retroilluminazione
 16. **K**:   catodo retroilluminazione
 
@@ -43,16 +43,16 @@ Questo adattatore usa lo I/O-expander a 8 bit PCF8574T
 **`0x27`** come indirizzo I<sub>2</sub>C standard. Gli 8 bit disponibili sono
 stati mappati sul display nel seguente modo:
 
- PC8574T bus pin | | LCD QC1602A pin
-:---------------:|-|:---------------:
- P0              |-| RS
- P1              |-| RW
- P2              |-| E
- P3              |-| BlackLight
- P4              |-| DB4
- P5              |-| DB5
- P6              |-| DB6
- P7              |-| DB7
+PC8574T bus pin | LCD QC1602A pin
+:--------------:|:---------------:
+P0              |RS
+P1              |RW
+P2              |E
+P3              |BlackLight
+P4              |DB4
+P5              |DB5
+P6              |DB6
+P7              |DB7
 
 Essendo utilizzati solo i 4 bit più significativi del bus dati del display, la
 comunicazione con quest'ultimo avverrà in nibble anziché in byte.
