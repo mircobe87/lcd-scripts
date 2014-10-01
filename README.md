@@ -99,4 +99,12 @@ istruzioni descritte nel
  
  - **lcd-clear.sh**: invia l'istruzione `clear` con l'effetto di rimuovere il
  contenuto del display e riportare il cursore alla posizione iniziale.
-
+ 
+ - **lcd-return-home.sh**: invia l'istruzione `return home` con l'effetto di
+ portare sia il cursore che il display nella loro posizione iniziale. Il
+ contenuto in caratteri del display non viene alterato.
+ 
+ - **lcd-cursor-display-shift.sh**: invia l'istruzione `display or cursor shift`
+ con l'effetto di muovere il cursore o il display di una posizione a destra o
+ sinistra senza modificare il contenuto.
+ 
