@@ -1,6 +1,33 @@
 #!/bin/bash
 
-I2C_BUS="1"
+function help () {
+	echo -e "$1\n"
+	echo -e "Imposta il comportamento del display dirante la scrittura.\n"
+	echo -e "USO:"
+	echo -e "  $0 -h"
+	echo -e "  $0 -d <LEFT/RIGHT> -s <ON/OFF>\n"
+	echo -e "OPZIONI:"
+	echo -e "  -h  mostra questa guida"
+	echo -e "  -d  imposta la direzione dello spostamento del cursore durante la scrittura."
+	echo -e "  -s  indica se shiftare o meno il display durante la scrittura.\n"
+	echo -e "<LEFT/RIGHT>  l - sinistra"
+	echo -e "              r - destra\n"
+	echo -e "<ON/OFF>  0 - OFF"
+	echo -e "          1 - ON\n"
+	echo -e "NOTE:"
+	echo -e "  lo script utilizza la variabile d'ambiente I2C_BUS per stabilire su quale"
+	echo -e "  bus lavorare. Assicurarsi che la variabile sia definita correttamente.\n"
+}
+
+if [ "$1" = "-h" ]; then
+	help
+	exit 0
+fi
+
+if [ -z $I2C_BUS ]; then
+	help "La variabile d'ambiente I2C_BUS non è definita."
+	exit 1
+fi
 
 LCD_ADDR="0x27"
 REG_ADDR="0x00"
@@ -39,15 +66,8 @@ elif [ "$1" = "-d" -a "$2" = "r" -a "$3" = "-s" -a "$4" = "1" ]; then
 	echo "Display shift:    ON"
 else
 
-	echo -e "USO:"
-	echo -e "  $0 -d <LEFT/RIGHT> -s <ON/OFF>\n"
-	echo -e "OPZIONI:"
-	echo -e "  -d  imposta la direzione dello spostamento del cursore durante la scrittura."
-	echo -e "  -s  indica se shiftare o meno il display durante la scrittura.\n"
-	echo -e "<LEFT/RIGHT>  l - sinistra"
-	echo -e "              r - destra\n"
-	echo -e "<ON/OFF>  0 - OFF"
-	echo -e "          1 - ON\n"
+	help "Errore parametri"
+	exit 1
 fi
 
 exit 0
