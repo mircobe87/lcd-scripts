@@ -64,9 +64,9 @@ comunicazione con quest'ultimo avverrà in nibble anziché in byte.
  dispositivo sia quello di default **`0x27`** e che la rimappatura dei pin sia
  quella mostrata nella precedente tabella.
 
- - Tutti gli script utilizzano il bus I<sub>2</sub>C numero **1** del
- RaspberryPi; a seconda della revisione sarà necessario modificare gli script
- impostando il bus 0.
+ - Tutti gli script utilizzano la variabile d'ambiente `I2C_BUS` per operare sul
+ bus I<sub>2</sub>C corretto. Impostare questa variabile prima dell'utilizzo
+ degli scripts. Valori comuni sono `0` o `1`.
 
  - Gli script sono realizzati utilizzando il tool **`i2cset`**, assicurarsi che
  il tool sia presente nel sistema.
