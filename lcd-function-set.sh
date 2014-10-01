@@ -1,6 +1,18 @@
 #!/bin/bash
 
-I2C_BUS="1"
+function help () {
+	echo -e "$1\n"
+	echo -e "USO:\n  $0 -l <N_LINES> -c <CHAR_SET>\n"
+	echo -e "OPZIONI:\n  -l  configura il numero di linee; N_LINES può essere 1 o 2."
+	echo -e "  -c  configura il charset dei caratteri; CHAR_SET può essere 5x8 o 5x10.\n"
+	echo -e "NOTE:\n  lo script utilizza la variabile d'ambiente I2C_BUS per stabilire su quale"
+	echo -e "  bus lavorare. Assicurarsi che la variabile sia definita correttamente.\n"
+}
+
+if [ -z $I2C_BUS ]; then
+	help "La variabile d'ambiente I2C_BUS non è definita."
+	exit 1
+fi
 
 LCD_ADDR="0x27"
 REG_ADDR="0x00"
@@ -59,9 +71,7 @@ elif [ "$1" = "-l" -a "$2" = "2" -a "$3" = "-c" -a "$4" = "5x10" ]; then
 
 else
 	# errore nei parametri
-	echo -e "USO:\n  $0 -l <N_LINES> -c <CHAR_SET>\n"
-	echo -e "OPZIONI:\n  -l  configura il numero di linee; N_LINES può essere 1 o 2."
-	echo -e "  -c  configura il charset dei caratteri; CHAR_SET può essere 5x8 o 5x10.\n"
+	help "Errore nei parametri"
 fi
 
 # display on, cursore on + blink
