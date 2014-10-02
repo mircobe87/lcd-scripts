@@ -110,5 +110,17 @@ istruzioni descritte nel
  
  - **lcd-backlight.sh**: accende o spegne la retroilluminazione del display.
  
+ - **lcd-set-ddram-addr**: invia l'istruzione `set DDRAM address` con l'effetto
+ di spostare il cursore in maniera *random* sul display. Ogni posizione del
+ cursore ha un indirizzo; i possibili indirizzi variano se si lavora su una o
+ dure righe:
+    - *1 Linea*: Si hanno a disposizione **80** posizioni con indirizzi che
+    variano da **0x00** a **0x4F**.
+    - *2 Linee*: Si hanno a disposizione **40** posizioni per riga con
+    indirizzi che variano:
+        1. da **0x00** a **0x27**
+        2. da **0x40** a **0x67**
  
- 
+    Ogni riga è come un vettore "circolare", ovvero l'indirizzo dell'ultima
+ posizione è anche quello della posizione precedente alla prima.
+
