@@ -108,3 +108,7 @@ istruzioni descritte nel
  con l'effetto di muovere il cursore o il display di una posizione a destra o
  sinistra senza modificare il contenuto.
  
+ - **lcd-backlight.sh**: accende o spegne la retroilluminazione del display.
+ 
+ 
+ 
