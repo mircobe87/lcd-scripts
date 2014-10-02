@@ -10,10 +10,10 @@ function help () {
 	echo -e "  -h  mostra questa guida."
 	echo -e "  -s  specifica su cosa effettuare lo spostamento."
 	echo -e "  -d  specifica la direzione dello spostamento.\n"
-	echo -e "  <CURSOR/DISPLAY>  0 - CURSOR"
-	echo -e "                    1 - DISPLAY\n"
-	echo -e "  <LEFT/RIGHT>  0 - LEFT"
-	echo -e "                1 - RIGHT\n"
+	echo -e "  <CURSOR/DISPLAY>  c, cursor, 0  - CURSOR"
+	echo -e "                    d, display, 1 - DISPLAY\n"
+	echo -e "  <LEFT/RIGHT>  l, left, 0  - LEFT"
+	echo -e "                r, right, 1 - RIGHT\n"
 	echo -e "NOTE:"
 	echo -e "  lo script utilizza la variabile d'ambiente I2C_BUS per stabilire su quale"
 	echo -e "  bus lavorare. Assicurarsi che la variabile sia definita correttamente.\n"
@@ -32,25 +32,25 @@ fi
 LCD_ADDR="0x27"
 REG_ADDR="0x00"
 
-if [ "$1" = "-s" -a "$2" = "0" -a "$3" = "-d" -a "$4" = "0" ]; then
+if [ "$1" = "-s" -a \( "$2" = "c" -o "$2" = "cursor" -o "$2" = "0" \) -a "$3" = "-d" -a \( "$4" = "l" -o "$4" = "left" -o "$4" = "0" \) ]; then
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x1C
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x18
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x0C
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x08
 
-elif [ "$1" = "-s" -a "$2" = "0" -a "$3" = "-d" -a "$4" = "1" ]; then
+elif [ "$1" = "-s" -a \( "$2" = "c" -o "$2" = "cursor" -o "$2" = "0" \) -a "$3" = "-d" -a \( "$4" = "r" -o "$4" = "right" -o "$4" = "1" \) ]; then
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x1C
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x18
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x4C
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x48
 
-elif [ "$1" = "-s" -a "$2" = "1" -a "$3" = "-d" -a "$4" = "0" ]; then
+elif [ "$1" = "-s" -a \( "$2" = "d" -o "$2" = "display" -o "$2" = "1" \) -a "$3" = "-d" -a \( "$4" = "l" -o "$4" = "left" -o "$4" = "0" \) ]; then
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x1C
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x18
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x8C
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x88
 
-elif [ "$1" = "-s" -a "$2" = "1" -a "$3" = "-d" -a "$4" = "1" ]; then
+elif [ "$1" = "-s" -a \( "$2" = "d" -o "$2" = "display" -o "$2" = "1" \) -a "$3" = "-d" -a \( "$4" = "r" -o "$4" = "right" -o "$4" = "1" \) ]; then
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x1C
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0x18
 	i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR 0xCC
