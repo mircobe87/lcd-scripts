@@ -73,6 +73,9 @@ comunicazione con quest'ultimo avverrà in nibble anziché in byte.
  
  - Prima di inviare altri comandi al display è necessario impostare il formato
  di comunicazione in nibble eseguendo lo script **lcd-function-set.sh**.
+ 
+ - Lo script **lcd-set-ddram-addr.sh** utilizza il tool bash `bc`, assicurarsi
+ che tale strumento sia installato nel sistema.
 
 ### Scripts
 Gli script sono realizzati con l'idea di rendere disponibile all'utente le
