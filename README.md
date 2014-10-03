@@ -121,6 +121,7 @@ istruzioni descritte nel
     variano da **0x00** a **0x4F**.
     - *2 Linee*: Si hanno a disposizione **40** posizioni per riga con
     indirizzi che variano:
+
         1. da **0x00** a **0x27**
         2. da **0x40** a **0x67**
  
