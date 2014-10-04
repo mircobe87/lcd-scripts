@@ -37,26 +37,26 @@ if [ -z $1 ]; then
 fi
 
 lNibble=$(( $1 % 16 ))
-echo "lNibble = $lNibble"
+#echo "lNibble = $lNibble"
 hNibble=$(( $1 / 16 ))
-echo "hNibble = $hNibble"
+#echo "hNibble = $hNibble"
 ctrl1=$(( 2#1101 )) # BL  E RW RS
                     #  1  1  0  1
-echo "ctrl1 = $ctrl1"
+#echo "ctrl1 = $ctrl1"
 ctrl2=$(( 2#1001 )) # BL  E RW RS
                     #  1  0  0  1
-echo "ctrl2 = $ctrl2"
+#echo "ctrl2 = $ctrl2"
 
 msg1=$(echo 0x$( echo "obase=16; $(( $hNibble * 16 | $ctrl1 ))" | bc ) )
 msg2=$(echo 0x$( echo "obase=16; $(( $hNibble * 16 | $ctrl2 ))" | bc ) )
 msg3=$(echo 0x$( echo "obase=16; $(( $lNibble * 16 | $ctrl1 ))" | bc ) )
 msg4=$(echo 0x$( echo "obase=16; $(( $lNibble * 16 | $ctrl2 ))" | bc ) )
 
-echo
-echo "msg1 = $msg1"
-echo "msg2 = $msg2"
-echo "msg3 = $msg3"
-echo "msg4 = $msg4"
+#echo
+#echo "msg1 = $msg1"
+#echo "msg2 = $msg2"
+#echo "msg3 = $msg3"
+#echo "msg4 = $msg4"
 
 i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR $msg1
 i2cset -y $I2C_BUS $LCD_ADDR $REG_ADDR $msg2
