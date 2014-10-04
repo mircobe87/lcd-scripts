@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function getHexCharList () {
-	echo -n $1 | hexdump -v -e '1/1 "%02X "'
+	echo -n "$1" | hexdump -v -e '1/1 "%02X "'
 }
 
 function help () {
@@ -28,13 +28,13 @@ if [ -z $I2C_BUS ]; then
 	exit 1
 fi
 
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
 	help "Nessuna stringa specificata"
 	exit 1
 fi
 
-for c in $( getHexCharList $1 ); do
-	./lcd-write-data "0x$c"
+for c in $( getHexCharList "$1" ); do
+	./lcd-write-data.sh "0x$c"
 done
 
 exit 0
