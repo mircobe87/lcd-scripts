@@ -116,7 +116,7 @@ istruzioni descritte nel
  
  - **lcd-backlight.sh**: accende o spegne la retroilluminazione del display.
  
- - **lcd-set-ddram-addr**: invia l'istruzione `set DDRAM address` con l'effetto
+ - **lcd-set-ddram-addr.sh**: invia l'istruzione `set DDRAM address` con l'effetto
  di spostare il cursore in maniera *random* sul display. Ogni posizione del
  cursore ha un indirizzo; i possibili indirizzi variano se si lavora su una o
  dure righe:
@@ -131,7 +131,7 @@ istruzioni descritte nel
     Ogni riga è come un vettore "circolare", ovvero l'indirizzo dell'ultima
  posizione è anche quello della posizione precedente alla prima.
 
- - **lcd-write-data**: invia l'istruzzione `Write data to CG or DDRAM` con
+ - **lcd-write-data.sh**: invia l'istruzzione `Write data to CG or DDRAM` con
  l'effetto di scrivere un carattere sul display nella posizione corrente del
  cursore. I valori ammessi per i caratteri sono quelli della codifica UTF-8 con
  la particolarità che per quei valori che in UTF-8 sono caratteri non stampabili
