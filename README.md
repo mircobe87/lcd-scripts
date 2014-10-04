@@ -76,7 +76,10 @@ comunicazione con quest'ultimo avverrà in nibble anziché in byte.
  
  - Lo script **lcd-set-ddram-addr.sh** utilizza il tool bash `bc`, assicurarsi
  che tale strumento sia installato nel sistema.
-
+ 
+ - Il Tool **lcdTool-print.sh** utilizza il comando bash `hexdump`, assicurarsi
+ che tale strumento sia installato nel sistema.
+ 
 ### Scripts
 Gli script sono realizzati con l'idea di rendere disponibile all'utente le
 istruzioni descritte nel
@@ -136,4 +139,12 @@ istruzioni descritte nel
  particolari (vedi pagine 17-18 del
  [datasheet](http://www.nxp.com/documents/data_sheet/PCF8574.pdf)).
 
+###Tools
+Sono stati realizzati alcuni tool sugli script precedenti per agevolare qualche
+operazione sul display:
+
+ - **lcdTool-print.sh**: consente di scrivere sul display una stringa di testo
+ possatagli come argomento. La stringa deve essere specificata tra doppi apici (
+ " "). La stringa viene scritta sul display a partire dalla attuale posizione
+ del cursore.
 
