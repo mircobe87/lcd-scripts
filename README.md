@@ -128,3 +128,12 @@ istruzioni descritte nel
     Ogni riga è come un vettore "circolare", ovvero l'indirizzo dell'ultima
  posizione è anche quello della posizione precedente alla prima.
 
+ - **lcd-write-data**: invia l'istruzzione `Write data to CG or DDRAM` con
+ l'effetto di scrivere un carattere sul display nella posizione corrente del
+ cursore. I valori ammessi per i caratteri sono quelli della codifica UTF-8 con
+ la particolarità che per quei valori che in UTF-8 sono caratteri non stampabili
+ (di controllo) mentre, nel controller del display sono rimappati con caratteri
+ particolari (vedi pagine 17-18 del
+ [datasheet](http://www.nxp.com/documents/data_sheet/PCF8574.pdf)).
+
+
