@@ -143,7 +143,12 @@ istruzioni descritte nel
  l'effetto di spostare il cursore nell'area di memoria dove definire caratteri.
  L'invio successivo di dati viene interpretato come la definizione di un nuovo
  pattern. Per tornare a scrivere sul display è necessario spostare il cursore
- in una posizione della DDRAM.
+ in una posizione della DDRAM. L'indirizzo specificato in questo comando non
+ indica la locazione dove verrà memorizzato il carattere ma indica la locazione
+ della prima riga che compone il pattern del carattere. Avendo a disposizione
+ spazio per 8 caratteri ci sono indirizzi per tutte le 64 righe che li
+ compongono (da 0x00 a 0x3F). Per maggiori dettagli si veda la pag. 19 del
+ [datasheet](http://www.nxp.com/documents/data_sheet/PCF8574.pdf)).
 
 ###Tools
 Sono stati realizzati alcuni tool sugli script precedenti per agevolare qualche
@@ -156,6 +161,7 @@ operazione sul display:
  
  - **lcdTool-set-custom-char.sh**: consente di inviare al display un carattere
  personalizzato. Il pattern è composto da 8 righe di testo di 5 caratteri 0 o 1:
- 0 indica un pixel spento, 1 acceso. Il patter può essere letto da file o da
- standard input.
+ 0 indica un pixel spento, 1 acceso. Il pattern può essere letto da file o da
+ standard input. Il nuovo carattere viene memorizzato in uno degli 0 indirizzi
+ DDRAM disponibili (da 0x00 a 0x07).
 

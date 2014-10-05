@@ -12,7 +12,7 @@ function help () {
 	echo -e "NOTE:"
 	echo -e "  lo script utilizza la variabile d'ambiente I2C_BUS per stabilire su quale"
 	echo -e "  bus lavorare. Assicurarsi che la variabile sia definita correttamente.\n"
-	echo -e "  I valori di CGRAM_ADDR ammissibili sono 8 e variano da 0x00 a 0x08.\n"
+	echo -e "  I valori di CGRAM_ADDR ammissibili sono 64 e variano da 0x00 a 0x3F.\n"
 }
 
 if [ -z $1 ]; then
@@ -33,7 +33,7 @@ fi
 LCD_ADDR="0x27"
 REG_ADDR="0x00"
 
-if [ $(( $1 )) -ge 0 -a $(( $1 )) -le 8 ]; then
+if [ $(( $1 )) -ge 0 -a $(( $1 )) -le 63 ]; then
 	word=$(( 2#00111111 & $1 | 2#01000000 ))
 	#echo "word = $word"
 	lNibble=$(( $word % 16 ))

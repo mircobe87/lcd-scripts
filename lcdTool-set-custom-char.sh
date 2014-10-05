@@ -12,11 +12,11 @@ function help () {
 	echo -e "Imposta un carattere personalizzato ad un indirizzo specificato.\n"
 	echo -e "USO:"
 	echo -e "  $0 -h"
-	echo -e "  $0 -a <CGRAM_ADDR> [-f <PATTERN_FILE>]\n"
+	echo -e "  $0 -a <DDRAM_ADDR> [-f <PATTERN_FILE>]\n"
 	echo -e "OPZIONI:"
 	echo -e "  -h  Mostra questa guida."
 	echo -e "  -a  Specifica l'indirizzo di memoria dove salvare il carattere."
-	echo -e "      Valori possibili sono da 0x00 a 0x08."
+	echo -e "      Valori possibili sono da 0x00 a 0x07."
 	echo -e "  -f  Nome del file sul quale il carattere è definito; se omesso, il"
 	echo -e "      il pattern viene letto da stdIn.\n"
 	echo -e "NOTE:"
@@ -40,7 +40,7 @@ fi
 addr=0
 if [ "$1" = "-a" ]; then
 	if [ "$2" != "" -a $(( $2 )) -ge 0 -a $(( $2 )) -lt 8 ]; then
-		addr=$(( $2 ))
+		addr=$(( $2 * 8 ))
 	else
 		echo "Indirizzo non valido"
 		exit 1
