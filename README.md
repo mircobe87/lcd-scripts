@@ -138,6 +138,12 @@ istruzioni descritte nel
  (di controllo) mentre, nel controller del display sono rimappati con caratteri
  particolari (vedi pagine 17-18 del
  [datasheet](http://www.nxp.com/documents/data_sheet/PCF8574.pdf)).
+ 
+ - **lcd-set-cgram-addr.sh**: invia l'istruzione `set CGRAM address` con
+ l'effetto di spostare il cursore nell'area di memoria dove definire caratteri.
+ L'invio successivo di dati viene interpretato come la definizione di un nuovo
+ pattern. Per tornare a scrivere sul display è necessario spostare il cursore
+ in una posizione della DDRAM.
 
 ###Tools
 Sono stati realizzati alcuni tool sugli script precedenti per agevolare qualche
@@ -147,4 +153,9 @@ operazione sul display:
  possatagli come argomento. La stringa deve essere specificata tra doppi apici (
  " "). La stringa viene scritta sul display a partire dalla attuale posizione
  del cursore.
+ 
+ - **lcdTool-set-custom-char.sh**: consente di inviare al display un carattere
+ personalizzato. Il pattern è composto da 8 righe di testo di 5 caratteri 0 o 1:
+ 0 indica un pixel spento, 1 acceso. Il patter può essere letto da file o da
+ standard input.
 
