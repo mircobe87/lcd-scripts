@@ -1,3 +1,5 @@
+<sup>for the English version see [en-README.md](en-README.md)</sup>
+
 # lcd-scripts
 
 È un set di script bash per il controllo (via RaspberryPI GPIO) di un display
